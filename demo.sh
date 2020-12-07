@@ -121,7 +121,8 @@ demo.run() {
   TKN pipeline start build-and-deploy \
     -w name=shared-workspace,volumeClaimTemplateFile=01_pipeline/03_persistent_volume_claim.yaml \
     -p deployment-name=vote-api \
-    -p git-url=http://github.com/openshift-pipelines/vote-api.git \
+    -p git-url=http://github.com/praveen4g0/vote-api.git \
+    -p git-revision=docker-to-quay \
     -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-api \
     --showlog=true
 
@@ -129,7 +130,8 @@ demo.run() {
   TKN pipeline start build-and-deploy \
     -w name=shared-workspace,volumeClaimTemplateFile=01_pipeline/03_persistent_volume_claim.yaml \
     -p deployment-name=vote-ui \
-    -p git-url=http://github.com/openshift-pipelines/vote-ui.git \
+    -p git-url=http://github.com/praveen4g0/vote-ui.git \
+    -p git-revision=docker-to-quay \
     -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-ui \
     --showlog=true
 
