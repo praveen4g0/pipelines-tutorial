@@ -70,11 +70,10 @@ demo.setup-triggers() {
 
   info "Setup Triggers"
   OC apply -f 03_triggers/01_binding.yaml
-  OC apply -f 03_triggers/03_trigger.yaml
   sed -e "s|pipelines-tutorial|$NAMESPACE|g" 03_triggers/02_template.yaml | OC apply -f -
 
   info "Setup Event Listener"
-  OC apply -f 03_triggers/04_event_listener.yaml
+  OC apply -f 03_triggers/03_event_listener.yaml
 
   sleep 3
   info "Expose event listener"
@@ -84,7 +83,6 @@ demo.setup-triggers() {
   sleep 5
   demo.webhook-url
 }
-
 
 demo.setup-pipeline() {
   local run_bootstrap=${1:-"run"}
